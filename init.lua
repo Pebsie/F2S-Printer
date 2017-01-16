@@ -3,7 +3,7 @@ AddCSLuaFile( "shared.lua" )  -- and shared scripts are sent.
 
 include('shared.lua')
 
-local interval = 2
+local interval = 5
 
 function ENT:Initialize()
 	self:SetModel( "models/props_c17/consolebox01a.mdl" )
@@ -24,7 +24,17 @@ end
 function ENT:Think()
   if CurTime() > self.timer + interval then
     self.timer = CurTime()
-    self:SetPrintAmount(self:GetPrintAmount() + 1)
+    self:SetPrintAmount(self:GetPrintAmount() + math.random(1,3))
+    self:SetTemperature(self:GetTemperature() + math.random(-2,4))
+    if self:GetTemperature() > 100 then
+      local vPoint = self:GetPos()
+      local effectdata = EffectData()
+      effectdata:SetStart(vPoint)
+      effectdata:SetOrigin(vPoint)
+      effectdata:SetScale(1)
+      util.Effect("Explosion", effectdata)
+      self:Remove()
+    end
   end
 end
 

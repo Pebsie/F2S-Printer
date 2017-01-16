@@ -8,6 +8,7 @@ ENT.AdminSpawnable = false
 
 function ENT:SetupDataTables()
 	self:NetworkVar("Int", 0, "PrintAmount")
+	self:NetworkVar("Int", 0, "Temperature")
 end
 
 function ENT:Draw()
