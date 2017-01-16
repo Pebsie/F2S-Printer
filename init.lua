@@ -26,17 +26,28 @@ function ENT:Think()
     self.timer = CurTime()
     self:SetPrintAmount(self:GetPrintAmount() + math.random(1,3))
     self:SetTemperature(self:GetTemperature() + math.random(-2,4))
-    local temperature = self:GetTemperature()
-    self:SetColor(255,(255-temperature*2.5),(255-temperature*2.5))
-    if self:GetTemperature() > 100 then
-      local vPoint = self:GetPos()
-      local effectdata = EffectData()
-      effectdata:SetStart(vPoint)
-      effectdata:SetOrigin(vPoint)
-      effectdata:SetScale(1)
-      util.Effect("Explosion", effectdata)
-      self:Remove()
-    end
+  end
+
+  local temperature = self:GetTemperature()
+  self:SetColor(255,(255-temperature*2.5),(255-temperature*2.5))
+
+  if temperature > 80 then
+    local vPoint = self:GetPos()
+    local effectdata = EffectData()
+    effectdata:SetStart(vPoint)
+    effectdata:SetOrigin(vPoint)
+    effectdata:SetScale(1)
+    util.Effect("Sparks", effectdata)
+  end
+
+  if self:GetTemperature() > 100 then
+    local vPoint = self:GetPos()
+    local effectdata = EffectData()
+    effectdata:SetStart(vPoint)
+    effectdata:SetOrigin(vPoint)
+    effectdata:SetScale(1)
+    util.Effect("Explosion", effectdata)
+    self:Remove()
   end
 end
 
