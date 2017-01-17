@@ -15,7 +15,7 @@ function chatCommand(ply,text,public)
 			printer:Spawn()
 		end
 	end
-	end
+end
 hook.Add("PlayerSay", "chatCommand", chatCommand)
 ```
 Players can now type <code>/buyprinter</code> in chat to buy a printer for $100. The printer will spawn wherever they're aiming.
