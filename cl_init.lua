@@ -20,6 +20,7 @@ function buyCool(ply,text,public)
 			eye.Entity:SetTemperature(-math.random(35, 75))
 			ply:PrintMessage(HUD_PRINTCENTER, "Coolant bought! New temperature: "..eye.Entity:GetTemperature())
 		end
+	end
 
 end
 hook.Add("PlayerSay", "buyCool", buyCool)
