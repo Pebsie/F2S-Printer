@@ -51,10 +51,10 @@ function ENT:Think()
   end
 end
 
-function ENT:OnTakeDamage(dmg)
-  self:TakePhysicsDamage(dmg)
-  self:SetTemperature(self:GetTemperature() + dmg)
-end
+--function ENT:OnTakeDamage(dmg)
+--  self:TakePhysicsDamage(dmg)
+--  self:SetTemperature(self:GetTemperature() + dmg)
+--end
 
 function ENT:Use(act, call)
   local moneyAmount = self:GetPrintAmount()
