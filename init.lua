@@ -52,6 +52,7 @@ function ENT:Think()
 end
 
 function ENT:OnTakeDamage(dmg)
+  self:TakePhysicsDamage(dmg)
   self:SetTemperature(self:GetTemperature() + dmg)
 end
 
